@@ -17,8 +17,9 @@ jobs:
             
     steps:
       - uses: actions/checkout@v2
-      - run: CGO_ENABLED=0
       - uses: wangyoucao577/go-release-action@master
+        env:
+          CGO_ENABLED: 0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           goos: ${{ matrix.goos }}
